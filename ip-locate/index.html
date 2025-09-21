@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Basics -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Site information -->
+    <title>大体の住所特定</title>
+    <meta name="description" content="あなたの大体の住所を特定します。">
+
+    <!-- Site panel -->
+    <meta property="og:site_name" content="住所特定">
+    <meta property="og:description" content="あなたの大体の住所を特定します。">
+    <meta property="og:type" content="website">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/sanitize.css">
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- JavaScript -->
+    <script type="module" src="script.js" defer></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- one `div` loaders -->
+    <!-- Copyright (c) 2024 Evgenii Simzikov -->
+    <link href="https://unpkg.com/onedivloaders@1.0.0/index.css" rel="stylesheet">
+
+    <!-- Feather -->
+    <!-- Copyright (c) 2013-2023 Cole Bemis -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+
+</head>
+<body>
+    <div class="main-content">
+        <div class="frame-1">
+            <a href="#" class="image-frame">
+                <img src="./img/locater-icon.svg" alt="" class="main-icon">
+                <span>アイコンだせぇなこれ</span>
+            </a>
+
+            <p class="p-1">GPSを利用せず、IPアドレスと紐づけられている場所の情報を使っておおよその住所を特定します。<br>住所と言っても大体の住所です。ピンポイントで特定されません。</p>
+            <span class="head-1">ご利用の際の注意<span></span></span>
+            <p class="p-2">VPNを利用していると住所、場所が大きくずれます。切ることをおすすめします。</p>
+            <span class="head-1">利用制限<span></span></span>
+            <p class="p-2">APIの都合上、一日に1000回しか利用いただけません。<br>ついでに再読み込みしまくられますと、サイトがお亡くなりになります。したら許しません。</p>
+            <button class="button-1 start-button" id="start-button">特定を開始する</button>
+        </div>
+        <div class="frame-1 status-frame" id="status-frame">
+            <div class="status-row">
+                <i data-feather="alert-triangle" class="alert-icon" id="alert-icon"></i>
+                <i data-feather="help-circle" class="question-icon" id="question-icon"></i>
+                <i data-feather="check-circle" class="check-icon" id="check-icon"></i>
+                <i data-feather="frown" class="frown-icon" id="frown-icon"></i>
+                <div class="circle-spin-2 load-icon" id="load-icon"></div>
+                <span id="status-message">しばらくお待ちください...</span>
+            </div>
+            <button class="button-1 retry-button" id="retry-button">再試行する</button>
+        </div>
+        <div class="frame-1 result-frame" id="result-frame">
+            <div class="result-data">
+                <button class="result-data-header" href="#" id="result-button">
+                    <i data-feather="chevron-down" class="drop-icon result-icon" id="drop-icon"></i>
+                    <span class="result-data-text">入手した情報</span>
+                </button>
+                <div class="result-accordion" id="result-list">
+                    <div class="continent-code result-div">
+                        <h3>大陸名</h3>
+                        <span id="result1-data">値がありません。</span>
+                    </div>
+                    <div class="country result-div">
+                        <h3>国名</h3>
+                        <span id="result2-data">値がありません。</span>
+                    </div>
+                    <div class="country-capital result-div">
+                        <h3>国の首都</h3>
+                        <span id="result3-data">値がありません。</span>
+                    </div>
+                    <div class="region result-div">
+                        <h3>リージョン (日本だと都道府県を示す)</h3>
+                        <span id="result4-data">値がありません。</span>
+                    </div>
+                    <div class="city result-div">
+                        <h3>都市 (日本だと地区町村などを示すはずだった)</h3>
+                        <span id="result5-data">値がありません。</span>
+                    </div>
+                </div>
+                <button class="result-data-header" href="#" id="result-pro-button">
+                    <i data-feather="chevron-down" class="drop-icon result-icon" id="drop-icon2"></i>
+                    <span class="result-data-text">高度利用者向けの情報</span>
+                </button>
+                <div class="result-pro-accordion" id="result-pro-list">
+                    <div class="provider result-div">
+                        <h3>プロバイダ名</h3>
+                        <span id="result6-data">値がありません。</span>
+                    </div>
+                    <div class="ip result-div">
+                        <h3>IPアドレス名</h3>
+                        <span id="result7-data">値がありません。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span class="hidden-message1 no-copy">なんかカーソルがマインクラフトの真ん中にあるやつになるって？。仕様だよ。</span>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>

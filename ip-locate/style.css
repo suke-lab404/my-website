@@ -1,0 +1,243 @@
+html{
+    font-family: "Inter","Noto Sans JP",sans-serif;
+}
+
+body{
+    background-color: #effaff;
+    color: #2d2d2d;
+}
+
+.no-copy{
+    user-select: none;  /* テキスト選択を無効化 */
+    -webkit-user-select: none; /* Safari / Chrome 用 */
+    -moz-user-select: none;    /* Firefox 用 */
+    -ms-user-select: none;     /* IE / Edge 用 */
+}
+
+.hidden-message1{
+    font-size: 10px;
+    color: #ffffff;
+}
+
+.main-content{
+    padding-bottom: 50px;
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+
+.frame-1{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 800px;
+    padding: 30px;
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    border: 2px solid #8c8c8c;
+    box-shadow: 3px 3px 6px 0px rgba(181, 181, 181, 0.5), inset -3px -5px 6px -4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-icon{
+    width: 100%;
+}
+
+.image-frame{
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    text-decoration: none;
+}
+.image-frame > span{
+    color: #e9e9e9;
+    font-size: 10px;
+}
+
+.important-text{
+    color: #ff4747;
+    font-weight: bold;
+}
+
+.p-1{
+    padding-top: 50px;
+    margin: 0;
+}
+
+.p-2{
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.head-1{
+    color: #2d2d2d;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    font-weight: 700;
+    position: relative;
+}
+.head-1 > span{
+    display: inline-block;
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #797979;
+    height: 3px;
+    width: calc(100% + 15px);
+    border-radius: 1000px;
+}
+
+.button-1{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 0;
+    font-weight: 600;
+    color: #00c8ff;
+    background-color: #ffffff;
+    border-radius: 200px;
+    border: 2px solid #9c9c9c;
+    box-shadow: 1px 1px 2px 0px rgba(181, 181, 181, 0.5);
+    transition: background-color 0.5s;
+    cursor: crosshair;
+    
+}
+
+.button-1:hover{
+    background-color: #8ee5ff;
+    color: #FFFFFF;
+    transition: background-color 0.2s;
+}
+
+.button-1:disabled{
+    background-color: #bdbdbd;
+    color: #757575;
+    transition: background-color 0.2s;
+}
+
+.start-button{
+    margin-top: 30px;
+}
+
+.status-frame{
+    margin-top: 30px;
+    display: none;
+    transition: height 0.1s ease-in-out;
+}
+
+.status-row{
+    display: flex;
+    gap: 30px;
+}
+
+.load-icon{
+    width: 24px;
+    height: 24px;
+}
+
+.alert-icon{
+    width: 24px;
+    height: 24px;
+    stroke: #ffb300;
+}
+
+.question-icon{
+    width: 24px;
+    height: 24px;
+    stroke: #222222;
+}
+
+.check-icon{
+    width: 24px;
+    height: 24px;
+    stroke: #222222;
+}
+
+.retry-button{
+    margin-top: 20px;
+}
+
+#load-icon{ display: none; }
+
+#alert-icon{ display: none; }
+
+#question-icon{ display: none; }
+
+#status-message{ display: none; }
+
+#retry-button{ display: none;}
+
+.result-frame{
+    margin-top: 30px;
+    display: none;
+}
+
+.result-data-header{
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: none;
+    padding: 0;
+    width: 100%;
+    cursor: crosshair;
+}
+
+.result-data-text{
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.drop-icon{
+    margin-right: 10px;
+}
+
+.result-div{
+    padding: 20px;
+}
+
+.result-div > h3{
+    margin: 0;
+}
+
+.result-div > span{
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.result-data-header > .drop-icon{
+    transition: transform 0.4s ease-in-out;
+    transform: rotate(0);
+}
+
+.result-data-header.open .drop-icon {
+    transform: translate(0,0) rotate(180deg);
+}
+
+#result-list{
+    --result-height: 0;
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: height 1s ease-in-out;
+}
+
+#result-list.open{
+    height: var(--result-height);
+}
+
+#result-pro-list {
+    --result-pro-height: 0;
+    height: 0;
+    overflow: hidden;
+    transition: height 1s ease-in-out;
+}
+
+#result-pro-list.open{
+    height: var(--result-pro-height);
+}
